@@ -99,8 +99,10 @@ Overall, the architecture ensures effective coordination between perception, con
 <img width="772" height="507" alt="image" src="https://github.com/user-attachments/assets/ee88c672-28dd-4408-a8c6-4bced0a34731" />
 
 Fig 5.1 Architecture Diagram
+
 ALGORITHMS
-   5.2.1 Paddy–Weed Classification Algorithm
+
+5.2.1 Paddy–Weed Classification Algorithm
 The Paddy–Weed Classification algorithm is a vision-based plant recognition approach that uses deep learning to distinguish paddy plants from weeds in real-field environments. The algorithm operates on images captured by a camera mounted on the robotic platform and performs classification in real time. A Convolutional Neural Network (CNN) forms the core of the algorithm, enabling automatic feature extraction and robust classification despite variations in lighting, background clutter, and plant growth stages. To improve accuracy and reduce training complexity, transfer learning is employed, allowing the model to leverage pretrained visual features and adapt them to the paddy–weed classification task.
 The classification process begins with image acquisition, followed by preprocessing steps such as   resizing, normalization, and noise reduction to standardize input quality. The preprocessed image is then passed through the CNN, where multiple convolutional layers extract discriminative features such as leaf shape, texture, and color patterns. The final layers compute class probabilities for paddy and weed categories. These probabilities are compared with a predefined confidence threshold to ensure reliable decision-making. Only when the probability of weed detection exceeds this threshold does the system generate a control signal for weed removal, thereby minimizing false positives and preventing accidental crop damage.
 
@@ -111,6 +113,7 @@ The algorithm calculates roll and pitch deviations from the balanced reference p
 5.2.3 Weed Removal Algorithm
 The Weed Removal algorithm performs selective and controlled removal of weeds once detection is confirmed by the classification module. This algorithm is designed to operate cautiously to avoid disturbing nearby paddy plants. Upon receiving a weed detection signal, the system activates a servo-driven plucking mechanism responsible for localized weed extraction.
 During arm movement, the balancing algorithm remains active to maintain mechanical stability. The plucking mechanism carefully approaches and removes the weed with minimal force to prevent soil disturbance. After removal, the arm returns to a predefined safe position. The system then resumes image capture and classification for the next detection cycle. This coordinated operation between perception, balance control, and actuation enables efficient and precise weed management in paddy cultivation environments.
+
 ## SYSTEM IMPLEMENTATION
 
 MODULE 1: DATA COLLECTION AND PREPROCESSING
